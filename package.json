@@ -10,5 +10,12 @@
   "license": "ISC",
   "dependencies": {
     "vue": "^2.0.1"
+  },
+  "devDependencies": {
+    "css-loader": "^0.25.0",
+    "typescript": "^2.0.3",
+    "vue-loader": "^9.5.1",
+    "vue-ts-loader": "0.0.3",
+    "webpack": "^1.13.2"
   }
 }
