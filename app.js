@@ -6598,7 +6598,11 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports={render:function (){with(this) {
-	  return _h('h1', ["\n  " + _s(name) + " is the best girl for " + _s(i) + " times\n  ", _h('button', {
+	  return _h('h1', {
+	    on: {
+	      "click": hello
+	    }
+	  }, ["\n  " + _s(name) + " is the best girl for " + _s(i) + " times\n  ", _h('button', {
 	    on: {
 	      "click": function($event) {
 	        $event.stopPropagation();
