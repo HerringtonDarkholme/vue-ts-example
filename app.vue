@@ -1,8 +1,8 @@
 <template>
 <h1 @click="hello">
-  hello {{name}} for {{i}} times
-  <button @click="add">+</button>
-  <button @click="sub">-</button>
+  {{name}} is the best girl for {{i}} times
+  <button @click.stop="add">+</button>
+  <button @click.stop="sub">-</button>
 </h1>
 
 </template>
@@ -14,7 +14,13 @@ import { create, getHelper, Vuex } from 'kilimanjaro'
 var store = create({count: 0})
   .getter('count', s => s.count)
   .mutation('increment', s => () => s.count++)
-  .mutation('decrement', s => () => s.count--)
+  .mutation('decrement', s => () => {
+    if (s.count <= 0) {
+      alert('Start from 0')
+      return
+    }
+    s.count--
+  })
   .done()
 
 var { getters, commit } = getHelper(store)
@@ -27,7 +33,7 @@ export default class App extends Vue {
   @Vuex sub = commit('decrement')
 
   hello() {
-    alert('hello ' + this.name)
+    alert(this.name + ' is the best girl!')
   }
 }
 </script>
